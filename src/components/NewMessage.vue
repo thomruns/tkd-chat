@@ -4,6 +4,7 @@
       <label for="new-message">New Message (press Enter to add)</label>
       <input type="text" name="new-message" v-model="newMessage">
     </form>
+    <p class="red-text" v-if="feedback">{{ feedback }}</p>
   </div>
 </template>
 
@@ -13,12 +14,17 @@ export default {
   props: ['name'],
   data() {
     return {
-      newMessage: null
+      newMessage: null,
+      feedback: null
     }
   },
   methods: {
     addMessage() {
-      console.log(this.newMessage, this.name, Date.now())
+      if(this.newMessage) {
+
+      } else {
+        this.feedback = "Please enter a message before pressing Enter"
+      }
       this.newMessage = null
     }
   }
