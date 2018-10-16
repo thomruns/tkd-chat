@@ -1,6 +1,6 @@
 <template>
   <div class="chat container">
-    <h2 class="center indigo-text">Welcome! You've joined the chat!</h2>
+    <h2 class="center indigo-text">Welcome to the chat, {{name}}!</h2>
     <div class="card">
       <div class="card-content">
         <ul class="messages">
@@ -12,16 +12,21 @@
         </ul>
       </div>
       <div class="card-action">
-        <input type="text">
+        <NewMessage :name="name"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import NewMessage from '@/components/NewMessage'
+
 export default {
   name: 'Chat',
   props: ['name'],
+  components: {
+    NewMessage
+  },
   data() {
     return {
 
