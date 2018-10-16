@@ -19,3 +19,4 @@ firestore.rules
 *.sln
 *.txt
 
+.firebase/hosting.ZGlzdA.cache
