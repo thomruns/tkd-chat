@@ -3,7 +3,7 @@
     <h2 class="center indigo-text">Welcome to the chat, {{name}}!</h2>
     <div class="card">
       <div class="card-content">
-        <ul class="messages">
+        <ul class="messages" v-chat-scroll>
           <li v-for="message in messages" :key="message.id">
             <span class="indigo-text">{{ message.name }}:</span>
             <span class="grey-text text-darken-2">{{ message.content }}</span>
@@ -22,6 +22,7 @@
 import NewMessage from '@/components/NewMessage'
 import db from '@/firebase/init'
 import moment from 'moment' // package for formatting dates
+
 
 export default {
   name: 'Chat',
@@ -65,8 +66,21 @@ export default {
 .chat .time {
   display: block;
   font-size: 0.8em;
+  margin-bottom: 10px;
 }
-
+.messages {
+  max-height: 300px;
+  overflow: auto;
+}
+.messages::-webkit-scrollbar {
+  width: 5px;
+}
+.messages::-webkit-scrollbar-track {
+  background: #ddd;
+}
+.messages::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
 
 </style>
 
