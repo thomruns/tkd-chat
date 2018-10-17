@@ -14,7 +14,9 @@
       <div class="card-action">
         <NewMessage :name="name"/>
       </div>
+      <button @click.prevent="leaveChat" class="btn indigo">Leave Chat</button>
     </div>
+    
   </div>
 </template>
 
@@ -51,6 +53,11 @@ export default {
         }
       })
     })
+  },
+  methods: {
+    leaveChat() {
+      this.$router.push({name: 'Welcome'})
+    }
   }
 }
 </script>
